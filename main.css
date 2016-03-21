@@ -8,6 +8,9 @@ a {
   text-decoration: none;
   color: inherit; }
 
+img {
+  max-width: 100%; }
+
 html,
 body,
 .wrapper {
@@ -15,10 +18,13 @@ body,
   height: 100%;
   margin: 0;
   font-family: "Montserrat" Arial, verdana, sans-serif;
+  background: #f4f4f4;
   color: #3d3d3d; }
 
-.wrapper {
-  background: #f4f4f4; }
+@media (min-width: 1050px) {
+  .wrapper {
+    width: 1050px;
+    margin: 0 auto; } }
 
 .grid {
   display: flex;
@@ -33,14 +39,14 @@ body,
 
 /* active class for buttons */
 .active {
-  background: #9F60B4 !important;
+  background: #9F7AEF !important;
   color: #f4f4f4; }
 
 /* console application */
 .console-wrap {
   padding: 20px 0px 45px 0px;
   border-radius: 4px;
-  background: #6441A5; }
+  background: #7859B4; }
 
 .console-list {
   margin: 0 auto;
@@ -62,7 +68,7 @@ body,
   .console-list-buttons:hover {
     cursor: pointer;
     color: #fff;
-    background: #9F60B4; }
+    background: #9F7AEF; }
   @media (min-width: 959px) {
     .console-list-buttons {
       width: 125px;
@@ -72,7 +78,7 @@ body,
   margin: 0 auto;
   border-radius: 2px;
   width: 90%;
-  height: 500px;
+  height: 475px;
   margin-top: 20px;
   background: #f4f4f4;
   overflow-y: scroll; }
@@ -94,8 +100,11 @@ body,
   .console-streamer:not(:last-child) {
     border-bottom: 1px solid rgba(168, 168, 168, 0.4); }
 
+.console-streamer-name {
+  font-weight: bold; }
+
 .console-streamer-game {
-  font-size: .75em;
+  font-size: .78em;
   font-style: italic; }
 
 .console-streamer-img {
@@ -104,5 +113,10 @@ body,
   width: 85px;
   border-radius: 100px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4); }
+
+.info-container {
+  width: 100%;
+  height: 100%;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
