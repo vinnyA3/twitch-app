@@ -1,5 +1,6 @@
 /* VARIBLES */
 $main-bg : rgb(244, 244, 244);
+$main-bg-hover: rgb(216, 216, 216);
 $main-app-color: #6441A5;
 $main-dark-font: rgb(61, 61, 61);
 /* media query breakpoints */
@@ -20,6 +21,11 @@ $breakpoints: (
 
 * {
   box-sizing: border-box;
+}
+
+a{
+   text-decoration: none;
+   color:inherit;
 }
 
 html,
@@ -49,6 +55,13 @@ body,
   };
 }
 
+/* active class for buttons */
+.active{
+	background: #9F60B4 !important;
+	color:$main-bg;
+}
+
+/* console application */
 .console-wrap{
   padding: 20px 0px 45px 0px;
   border-radius:4px;
@@ -65,9 +78,11 @@ body,
 		  border-radius:2px;
 		  display: inline-block;
 		  font-weight: bold;
-		  width: 100%;
+		  width: 90%;
+			&:not(:last-child){
+				margin-bottom: 6px;
+			}
 		  padding:20px;
-		  margin-right:1px;
 		  background: $main-bg;
 		  transition: all 0.4s ease;
 		  &:hover{
@@ -77,13 +92,14 @@ body,
 		  }
 		  @include break(lg) {
 			width: 125px;
+			margin-bottom: 0px;
 		  }
 		}
 
 	.console-streamers-container{
 	  margin:0 auto;
 	  border-radius:2px;
-	  width: 80%;
+	  width: 90%;
 	  height: 500px;
 	  margin-top:20px;
 	  background: $main-bg;
@@ -99,14 +115,26 @@ body,
 	}
 		.console-streamer{
 		  width: 100%;
-		  padding: 10px 3px 10px 3px;
-		  border-bottom: 1px solid black;
+		  padding: 10px 3px 10px 8px;
+			transition: all 0.4s ease;
+			&:hover{
+				cursor: pointer;
+				background: $main-bg-hover;
+			}
+			&:not(:last-child){
+				border-bottom: 1px solid rgba(168, 168, 168,0.4);
+			}
 		}
+			.console-streamer-game{
+				font-size: .75em;
+				font-style: italic;
+			}
 			.console-streamer-img{
 				display: inline-block;
 				height:85px;
 				width: 85px;
 				border-radius: 100px;
+				box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
 			}
 
 
