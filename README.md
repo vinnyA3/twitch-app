@@ -5,5 +5,7 @@ This is a code refactoring of my first twitch app: http://codepen.io/vinnyA3/pen
 
 Code is written using the __Separation of Concerns__ design pattern.
 
-SASS is used for style organization and efficiency.    
+SASS is used for style organization and efficiency.  
+
+__New link__: http://s.codepen.io/vinnyA3/debug/oxZeXv   
 
