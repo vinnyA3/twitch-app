@@ -42,16 +42,16 @@
 
         streamers.forEach(function(user) {
           getTwitchData('streams/', user, function(data) {
-            console.log(data);
+         
             if (data.stream == null) {
               //if stream object is null, make a second api call to grab the streamers icons
               getTwitchData('users/', user, function(data) {
                 //populate streamer container with streamer info
-                streamer_contain.append("<a href='http://www.twitch.tv/" + user + "/profile' target='_blank'><div class='console-streamer' data-status='offline'><img class='console-streamer-img' src=" + data.logo + "><p>" + user + "<br><span class='console-streamer-game'>Offline</span><p></div></a>");
+                streamer_contain.append("<a href='http://www.twitch.tv/" + user + "/profile' target='_blank'><div class='console-streamer' data-status='offline'><img class='console-streamer-img' src=" + data.logo + "><p><span class='console-streamer-name'>" + user + "</span><br><span class='console-streamer-game'>Offline</span><p></div></a>");
               });
             } else {
               //populate streamer container with streamer info
-              streamer_contain.append("<a href='http://www.twitch.tv/" + user + "/profile' target='_blank'><div class='console-streamer' data-status='online'><img class='console-streamer-img' src=" + data.stream.channel.logo + "><p>" + data.stream.channel.name + "<br><span class='console-streamer-game'>" + data.stream.channel.game + "</span></p></div></a>");
+              streamer_contain.append("<a href='http://www.twitch.tv/" + user + "/profile' target='_blank'><div class='console-streamer' data-status='online'><img class='console-streamer-img' src=" + data.stream.channel.logo + "><p><span class='console-streamer-name'>" + data.stream.channel.name + "</span><br><span class='console-streamer-game'>" + data.stream.channel.game + "</span></p></div></a>");
             }
           });
         });
