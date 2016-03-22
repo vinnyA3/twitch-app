@@ -11,8 +11,10 @@
     },
     getStreamers: function() {
       return model.streamers;
-    }
-
+    },
+	getApiUrl: function(){
+	  return model.api_url;	
+	}
   };
 
   var twitchView = {
@@ -23,29 +25,32 @@
       this.streamers_container = $(this.console).find('div.console-streamers-container');
 
       this.streamers = controller.getStreamers();
+		
+	  this.api_url = controller.getApiUrl();
 
       this.render();
     },
     render: function() {
 
         var streamer_contain = this.streamers_container,
-          streamers = this.streamers;
+          streamers = this.streamers,
+		  url = this.api_url;
         //ajax api call
-        function getTwitchData(path, user, callback) {
+        function getTwitchData(url, path, user, callback) {
           $.ajax({
             method: 'GET',
-            url: model.api_url + path + user,
+            url: url + path + user,
             dataType: 'jsonp',
             success: callback
           });
         };
 
         streamers.forEach(function(user) {
-          getTwitchData('streams/', user, function(data) {
+          getTwitchData(url, 'streams/', user, function(data) {
          
             if (data.stream == null) {
               //if stream object is null, make a second api call to grab the streamers icons
-              getTwitchData('users/', user, function(data) {
+              getTwitchData(url, 'users/', user, function(data) {
                 //populate streamer container with streamer info
                 streamer_contain.append("<a href='http://www.twitch.tv/" + user + "/profile' target='_blank'><div class='console-streamer' data-status='offline'><img class='console-streamer-img' src=" + data.logo + "><p><span class='console-streamer-name'>" + user + "</span><br><span class='console-streamer-game'>Offline</span><p></div></a>");
               });
