@@ -6,6 +6,7 @@ $main-dark-font: rgb(61, 61, 61);
 /* media query breakpoints */
 $breakpoints: (
   xs: 320px,
+  xsx: 350px,
   sm: 480px,
   md: 607px,
   lg: 959px,
@@ -113,12 +114,14 @@ body,
 	  background: $main-bg;
 	  overflow-y:scroll;
 		p{
-			display: inline-block;
-		    position: relative;
-			padding: 0;
-			margin: 0;
-			left: 15px;
-			bottom: 40px;
+			@include break(xsx) {
+				display: inline-block;
+				position: relative;
+				padding: 0;
+				margin: 0;
+				left: 15px;
+				bottom: 40px;	
+			}
 		}
 	}
 		.console-streamer{
@@ -141,11 +144,14 @@ body,
 				font-style: italic;
 			}
 			.console-streamer-img{
-				display: inline-block;
-				height:85px;
-				width: 85px;
-				border-radius: 100px;
-				box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+				display: none;
+				@include break(xsx) {
+					display:inline-block;
+					height:85px;
+					width: 85px;
+					border-radius: 100px;
+					box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+				}		
 			}
 
 .info-container{
@@ -153,4 +159,3 @@ body,
   height: 100%;
   text-align:center;
 }
-
